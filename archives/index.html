@@ -1,282 +1,350 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE HTML>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="wangjian">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://localhost:4000">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="wangjian博客" />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
     
-    <title>文章归档 | wangjian</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
-    <meta name="keywords" content="atwangjian, 后端, Web, 后端开发" >
-    <meta name="description" content="wangjian个人前端小站" >
+    Archives |
+    
+    wangjian
+</title>
+
+<link rel="alternate" href="/atom.xml" title="wangjian" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
 
     
-    <link rel="alternative" href="/atom.xml" title="wangjian" type="application/atom+xml" >
-    
-    
-    <link rel="shortcut icon" href="/favicon.ico" >
-    
-    
-<link rel="stylesheet" href="/css/style.css">
 
-    <!--[if lt IE 9]>
-    
-<script src="/js/html5.js"></script>
 
-    <![endif]-->
-    
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d5ebf515ab530cfbdda5f5c85093fb41";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
 
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
 
 <meta name="generator" content="Hexo 4.2.0"></head>
-
-
-<body class="home">
-    <!--[if lt IE 9]>
-    <div class="browsehappy">
-        当前网页 <strong>不支持</strong>
-        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank" rel="noopener">升级你的浏览器</a>.
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='wangjian'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                后端开发|Crud小能手|Java
+            </h2>
+            
+        </div>
     </div>
-    <![endif]-->
-
-    <!-- 博客头部 -->
-    <header class="header">
-    <section class="container header-main">
-        <div class="logo">
-            <a href="/">
-                <div class="cover">
-                    <span class="name">wangjian</span>
-                    <span class="description">个人博客小站</span>
-                </div>
-            </a>
-        </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
-        <ul class="menu hidden" id="JELON__menu">
-            
-            <li rel="/archives/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
-            </li>
-            
-            <li rel="/archives/index.html" class="item ">
-                <a href="/util/" title="工具类" class="icon-lab">&nbsp;工具类</a>
-            </li>
-            
-            <li rel="/archives/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
-            </li>
-            
-        </ul>
-        <div class="profile clearfix">
-            <div class="feeds fl">
-                
-                
-                <p class="links">
-                    
-                        <a href="" target="_blank">将来的你一定会感谢现在努力的自己！</a>
-                        
-                    
-                </p>
-                <p class="sns">
-                    
-                        <a href="http://weibo.com/u/5783171588" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
-                    
-                        <a href="https://music.163.com/#/user/home?id=125224107" class="qqweibo" target="_blank"><b>■</b> 网易云音乐</a>
-                    
-                        <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=HSUqKy0vKi8qK11sbDN_cnA" class="wechat" target="_blank"><b>■</b> 邮箱</a>
-                    
-                </p>
-                
-            </div>
-            <div class="avatar fr">
-                <img src="/img/blog.jpg" alt="avatar" title="Jelon" >
-            </div>
-        </div>
-    </section>
 </header>
-
-
-    <!-- 博客正文 -->
-    <div class="container body clearfix">
-        <section class="content">
-            <div class="content-main widget">
-                <!-- 文章归档 -->
-
-    <h3 class="widget-hd">
-        <strong>
-            
-                文章归档
-                <!-- 文章归档，可以根据日期分类 -->
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="http://atwangjian.cn/hello-world.html">
-    		helloWorld
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        wangjian 发表于
-        <time datetime="2020-04-01T14:28:46.000Z">2020-04-01</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/%E5%93%88%E5%93%88%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/" title="哈哈测试一下">哈哈测试一下</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                测试事实是世界上第阿士大夫士大夫
-            
-            <p class="more">
-                <a href="http://atwangjian.cn/hello-world.html">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="http://atwangjian.cn/hello-world.html" title="helloWorld">
-                
-                    <!--
-                    <img src="/img/fengmian/1.jpg" class="thumbnail">
-                    -->
-                    <img class="thumbnail" src="/img/default.png" data-echo="img/fengmian/1.jpg" alt="helloWorld" >
-                
-            </a>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://localhost:4000">
+                        wangjian</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/util/"><i class="fa "></i>
+                                工具类</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于我</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-</article>
-
-    
-
-    
-    <nav class="page-navigator">
-        <span class="page-number current">1</span>
-    </nav>
-    
-
-
-            </div>
-
-        </section>
-        <!-- 侧栏部分 -->
-<aside class="sidebar">
-    
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
-        <div class="search-form">
-  <form
-    id="searchForm"
-    method="GET"
-    action="https://www.baidu.com/s"
-    ectype="application/x-www-form-urlencoded"
-    target="_blank"
-    autocomplete="false"
-    onsubmit="javascript: return false;">
-    <input
-      id="searchKeyword"
-      type="text"
-      class="form-control"
-      placeholder="输入关键字搜索"
-      autocomplete="false"
-    />
-    <input id="searchKeywordHidden" type="hidden" name="wd" />
-    <input id="searchButton" class="btn" type="submit" value="搜索" />
-  </form>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content ">
+                    <div id="main">
+    <div class="timebox">
+        <div class="timeline">
+            <ul>
+                
+                
+                
+                
+                
+                
+                <h2>
+                    2020
+                </h2>
+                
+                
+                <li>
+                    
+                    <h3>
+                        01<span>
+                            04月</span>
+                    </h3>
+                    <a href="/hello-world.html" title="helloWorld" target="_blank">
+                        helloWorld</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
 </div>
-    </section>
+                </main>
+                
+                    
+<aside class="col-md-4 sidebar">
     
-
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章分类</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
     
-    <li>
-        <a href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-</ul>
-    </section>
-
-    
-    <section class="widget">
-        <h3 class="widget-hd"><strong>热门标签</strong></h3>
-        <!-- 文章标签 -->
-<div class="widget-bd tag-wrap">
-  
-    <a class="tag-item" href="/tags/%E5%93%88%E5%93%88%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/" title="哈哈测试一下">哈哈测试一下 (1)</a>
-  
+<div class="widget">
+    <h3 class="title">
+        本站搜索
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="大佬！搜点什么呢？">
+            <button type="button" class="search-form-submit" id="search-local">
+                搜索</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
 </div>
-    </section>
-    
 
     
+    
+<div class="widget">
+    <h3 class="title">
+        网站公告
+    </h3>
+    <div class="notification">
+        <p>
+    我曾踏足山巅，也曾进入低谷，二者都让我受益良多！
+ 
+</p>
+    </div>
+</div>
 
     
-    <!-- 友情链接 -->
-    <section class="widget">
-        <h3 class="widget-hd"><strong>友情链接</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
     
-        <li>
-            <a href="http://cnpanda.net/" target="_blank" title="Panda">Panda</a>
-        </li>
+<div class="widget">
+    <h3 class="title">
+        社交
+    </h3>
+    <div class="content social">
+        
+        <a href="//github.com/atwangjian" rel="external nofollow" title="Github" target="_blank">
+            <i class="git fa fa-git"></i>
+        </a>
+        
+        <a href="mailto:876027276@qq.com" rel="external nofollow" title="邮箱" target="_blank">
+            <i class="envelope-o fa fa-envelope-o"></i>
+        </a>
+        
+        <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+            <i class="feed fa fa-feed"></i>
+        </a>
+        
+    </div>
+</div>
+
     
-        <li>
-            <a href="http://cvccy.com/" target="_blank" title="hf&#39;s blog">hf&#39;s blog</a>
-        </li>
     
-</ul>
-    </section>
+<div class="widget">
+    <h3 class="title">
+        文章分类
+    </h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/"><i class="fa" aria-hidden="true">测试</i></a><span class="category-list-count">1</span></li></ul>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        文章归档
+    </h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><i class="fa" aria-hidden="true">2020年04月</i></a><span class="archive-list-count">1</span></li></ul>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        热门标签
+    </h3>
+    <div class="content tag-cloud">
+        
+        <a href="/tags/%E5%93%88%E5%93%88%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/" style="font-size: 10px;">哈哈测试一下</a>
+        
+    </div>
+</div>
+
+    
+    
+<div class="widget">
+    <h3 class="title">
+        友情链接
+    </h3>
+    <div class="content friends-link">
+        
+        <a href="http://cnpanda.net/" class="fa" target="_blank">
+            Panda</a>
+        
+        <a href="http://cvccy.com/" class="fa" target="_blank">
+            hf&#39;s blog</a>
+        
+    </div>
+</div>
+
     
 </aside>
-<!-- / 侧栏部分 -->
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
     </div>
-
-    <!-- 博客底部 -->
-    <footer class="footer">
-    &copy;
-  
-    Copyright © 2020 | Powered by <a href="/">wangjian</a>
-
 </footer>
-<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!--博客js脚本 -->
-    <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1585917029963.js"></script>
+<script src="/js/search.js?rev=@@hash.js"></script>
 
 
-<script type="text/javascript" src="/js/clicklove.js"></script>
 
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":280},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
