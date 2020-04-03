@@ -22,7 +22,7 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="wangjian博客" />
+<meta name="description" content="一.String字符串1.对字符串去除符号并转为json123456789101112131415public static void removeSymbol() &#123;        ..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +33,7 @@
 
 <title>
     
-    Category: 测试 |
+    Java工具类 |
     
     wangjian
 </title>
@@ -138,169 +138,122 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
-    
-    <li>
-        测试
-    </li>
-    
-</ol>
-
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
 <article class="post">
+    <div class="post-head">
+        <h1 id="Java工具类">
+            
+            Java工具类
+            
+        </h1>
+        <div class="post-meta">
     
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/test.html">
-                    测试专用</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2020年04月01日
-                </time>
-            </div>
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/03</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="一-String字符串"><a href="#一-String字符串" class="headerlink" title="一.String字符串"></a>一.String字符串</h1><h2 id="1-对字符串去除符号并转为json"><a href="#1-对字符串去除符号并转为json" class="headerlink" title="1.对字符串去除符号并转为json"></a>1.对字符串去除符号并转为json</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">public</span> static <span class="type">void</span> removeSymbol() &#123;    </span><br><span class="line">    String msg = "\"&#123;\"name\": \"张三\",\"password\": \"@123456\",\"age\": \"15\"&#125;\"";</span><br><span class="line">    // 去除转义</span><br><span class="line">    String msg1 = msg.replaceAll("\\\\", "");</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("原来字符串:"+msg);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("去除转义:"+msg1);</span><br><span class="line">    // 去除首尾""</span><br><span class="line">    String msg2 = msg1.substring(<span class="number">1</span>, msg1.length() - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("去除首尾双引号:"+msg2);</span><br><span class="line">    // 转为<span class="type">json</span></span><br><span class="line">    JSONObject <span class="type">json</span> = JSONObject.parseObject(msg2);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("转为json"+<span class="type">json</span>);</span><br><span class="line">    String <span class="type">name</span> = <span class="type">json</span>.getString("name");</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("json中name的值:" + <span class="type">name</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：    </p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原来字符串:"&#123;"<span class="type">name</span>": "张三","<span class="keyword">password</span>": "@<span class="number">123456</span>","age": "<span class="number">15</span>"&#125;"</span><br><span class="line">去除转义:"&#123;"<span class="type">name</span>": "张三","<span class="keyword">password</span>": "@<span class="number">123456</span>","age": "<span class="number">15</span>"&#125;"</span><br><span class="line">去除首尾双引号:&#123;"name": "张三","password": "@123456","age": "15"&#125;</span><br><span class="line">转为<span class="type">json</span>&#123;"password":"@123456","name":"张三","age":"15"&#125;</span><br><span class="line"><span class="type">json</span>中<span class="type">name</span>的值:张三</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">atwangjian</a>
+            
+            
         </div>
-        <p class="brief">
+        <div>
             
-            一级目录testasdfasdfasddddddddddddddsdafdasfsdafasdfsdfsdafsdafdsf 
-sdfsdf 
-dsfsdafasdfasdf 
-asdfasdfasddddddddddddddsdaf...
-            
-        </p>
+        </div>
     </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/test.html" class="next-post btn btn-default" title='测试专用'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            测试专用</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
 
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'en'.toLowerCase()
+})
+</script>
+
+
+</div>
 
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        本站搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="大佬！搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        网站公告
-    </h3>
-    <div class="notification">
-        <p>
-    我曾踏足山巅，也曾进入低谷，二者都让我受益良多！
- 
-</p>
-    </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
         
-        <a href="//github.com/atwangjian" rel="external nofollow" title="Github" target="_blank">
-            <i class="git fa fa-git"></i>
-        </a>
-        
-        <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=HSUqKy0vKi8qK11sbDN_cnA" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://music.163.com/#/user/home?id=125224107" rel="external nofollow" title="网易云音乐" target="_blank">
-            <i class="headphones fa fa-headphones"></i>
-        </a>
-        
-        <a href="http://weibo.com/u/5783171588" rel="external nofollow" title="新浪微博" target="_blank">
-            <i class="weibo fa fa-weibo"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-String字符串"><span class="toc-text">一.String字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对字符串去除符号并转为json"><span class="toc-text">1.对字符串去除符号并转为json</span></a></li></ol></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        文章分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/"><i class="fa" aria-hidden="true">测试</i></a><span class="category-list-count">1</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        文章归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><i class="fa" aria-hidden="true">2020年04月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/"><i class="fa" aria-hidden="true">2020年02月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        热门标签
-    </h3>
-    <div class="content tag-cloud">
-        
-        <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
-        
-    </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友情链接
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="http://cnpanda.net/" class="fa" target="_blank">
-            Panda</a>
-        
-        <a href="http://cvccy.com/" class="fa" target="_blank">
-            hf&#39;s blog</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -344,10 +297,6 @@ asdfasdfasddddddddddddddsdaf...
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
