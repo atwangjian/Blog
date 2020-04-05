@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
@@ -19,7 +20,7 @@
     <link rel="dns-prefetch" href="http://atwangjian.cn">
     <!--SEO-->
 
-<meta name="keywords" content="java,后端开发" />
+<meta name="keywords" content="工具类" />
 
 
 <meta name="description" content="一.String字符串1.对字符串去除符号并转为json123456789101112131415public static void removeSymbol() &#123;        ..." />
@@ -37,8 +38,6 @@
     
     wangjian个人博客小站
 </title>
-
-<link rel="alternate" href="/atom.xml" title="wangjian个人博客小站" type="application/atom+xml">
 
 
 <link rel="icon" href="/favicon.ico">
@@ -110,11 +109,6 @@
                         </li>
                         
                         <li role="presentation" class="text-center">
-                            <a href="/tools.html"><i class="fa "></i>
-                                Java工具类</a>
-                        </li>
-                        
-                        <li role="presentation" class="text-center">
                             <a href="/about/"><i class="fa "></i>
                                 关于</a>
                         </li>
@@ -127,6 +121,21 @@
                         <li role="presentation" class="text-center">
                             <a href="/archives/"><i class="fa "></i>
                                 时间轴</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/build/"><i class="fa "></i>
+                                建站日志</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/bookmark/"><i class="fa "></i>
+                                书签</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tools.html"><i class="fa "></i>
+                                工具类</a>
                         </li>
                         
                     </ul>
@@ -151,13 +160,15 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        
+        <a class="category-link" href="/categories/Java/">Java</a>
     </span>
     
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a>
             
         </span>
     </span>
@@ -167,7 +178,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2020/04/05</span>
+            2020/04/03</span>
     </span>
     
     
@@ -177,10 +188,10 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="一-String字符串"><a href="#一-String字符串" class="headerlink" title="一.String字符串"></a>一.String字符串</h1><h2 id="1-对字符串去除符号并转为json"><a href="#1-对字符串去除符号并转为json" class="headerlink" title="1.对字符串去除符号并转为json"></a>1.对字符串去除符号并转为json</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> removeSymbol() &#123;    <br>    String msg = "\"&#123;\"name\": \"张三\",\"password\": \"@123456\",\"age\": \"15\"&#125;\"";<br>    // 去除转义<br>    String msg1 = msg.replaceAll("\\\\", "");<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println("原来字符串:"+msg);<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println("去除转义:"+msg1);<br>    // 去除首尾""<br>    String msg2 = msg1.substring(<span class="hljs-number">1</span>, msg1.length() - <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println("去除首尾双引号:"+msg2);<br>    // 转为<span class="hljs-type">json</span><br>    JSONObject <span class="hljs-type">json</span> = JSONObject.parseObject(msg2);<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println("转为json"+<span class="hljs-type">json</span>);<br>    String <span class="hljs-type">name</span> = <span class="hljs-type">json</span>.getString("name");<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println("json中name的值:" + <span class="hljs-type">name</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+        <h1 id="一-String字符串"><a href="#一-String字符串" class="headerlink" title="一.String字符串"></a>一.String字符串</h1><h2 id="1-对字符串去除符号并转为json"><a href="#1-对字符串去除符号并转为json" class="headerlink" title="1.对字符串去除符号并转为json"></a>1.对字符串去除符号并转为json</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">public</span> static <span class="type">void</span> removeSymbol() &#123;    </span><br><span class="line">    String msg = "\"&#123;\"name\": \"张三\",\"password\": \"@123456\",\"age\": \"15\"&#125;\"";</span><br><span class="line">    // 去除转义</span><br><span class="line">    String msg1 = msg.replaceAll("\\\\", "");</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("原来字符串:"+msg);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("去除转义:"+msg1);</span><br><span class="line">    // 去除首尾""</span><br><span class="line">    String msg2 = msg1.substring(<span class="number">1</span>, msg1.length() - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("去除首尾双引号:"+msg2);</span><br><span class="line">    // 转为<span class="type">json</span></span><br><span class="line">    JSONObject <span class="type">json</span> = JSONObject.parseObject(msg2);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("转为json"+<span class="type">json</span>);</span><br><span class="line">    String <span class="type">name</span> = <span class="type">json</span>.getString("name");</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("json中name的值:" + <span class="type">name</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：    </p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">原来字符串:"&#123;"<span class="hljs-type">name</span>": "张三","<span class="hljs-keyword">password</span>": "@<span class="hljs-number">123456</span>","age": "<span class="hljs-number">15</span>"&#125;"<br>去除转义:"&#123;"<span class="hljs-type">name</span>": "张三","<span class="hljs-keyword">password</span>": "@<span class="hljs-number">123456</span>","age": "<span class="hljs-number">15</span>"&#125;"<br>去除首尾双引号:&#123;"name": "张三","password": "@123456","age": "15"&#125;<br>转为<span class="hljs-type">json</span>&#123;"password":"@123456","name":"张三","age":"15"&#125;<br><span class="hljs-type">json</span>中<span class="hljs-type">name</span>的值:张三<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原来字符串:"&#123;"<span class="type">name</span>": "张三","<span class="keyword">password</span>": "@<span class="number">123456</span>","age": "<span class="number">15</span>"&#125;"</span><br><span class="line">去除转义:"&#123;"<span class="type">name</span>": "张三","<span class="keyword">password</span>": "@<span class="number">123456</span>","age": "<span class="number">15</span>"&#125;"</span><br><span class="line">去除首尾双引号:&#123;"name": "张三","password": "@123456","age": "15"&#125;</span><br><span class="line">转为<span class="type">json</span>&#123;"password":"@123456","name":"张三","age":"15"&#125;</span><br><span class="line"><span class="type">json</span>中<span class="type">name</span>的值:张三</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -224,41 +235,19 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    
-    <a href="/test.html" class="next-post btn btn-default" title='测试专用'>
-        <span class="hidden-lg">下一篇</span>
+    <a href="/test.html" class="pre-post btn btn-default" title='测试专用'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            测试专用</span><i class="fa fa-angle-right fa-fw"></i>
+            测试专用</span>
     </a>
     
-</div>
-
-<div id="comments">
     
-
-<div id="vcomments" class="valine"></div>
-
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="/assets/valine.min.js"></script>
-
-<script>
-new Valine({
-    av: AV,
-    el: '#vcomments',
-    appId: '4GVjAHT57wrVSFgcukAADkSP-gzGzoHsz',
-    appKey: 'yNilC5ml46aQXsF4KI8SEQby',
-    placeholder: '说点什么吧！',
-    notify: true,
-    verify: true,
-    avatar: 'wavatar',
-    meta: 'nick,mail'.split(','),
-    pageSize: '10',
-    path: window.location.pathname,
-    lang: 'zh-CN'.toLowerCase()
-})
-</script>
-
-
+    <a href="/liuyanban.html" class="next-post btn btn-default" title='留言板'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            留言板</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
 </div>
 
                 </main>
@@ -315,5 +304,15 @@ new Valine({
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":280},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/love.js"></script>
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
 
 </html>
