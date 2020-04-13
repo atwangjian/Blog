@@ -20,10 +20,18 @@
     <link rel="dns-prefetch" href="http://atwangjian.cn">
     <!--SEO-->
 
-<meta name="keywords" content="java,后端开发" />
+<meta name="keywords" content="Spring" />
 
 
-<meta name="description" content="wangjian博客" />
+<meta name="description" content="一.事务的概念和特性概念：事务指的是逻辑上的一组操作，这个操作要么全部成功，要么全部失败。特性：        
+
+
+    特性
+    描述
+
+
+      原子性
+      事务是一个不..." />
 
 
 <meta name="robots" content="all" />
@@ -34,7 +42,7 @@
 
 <title>
     
-    标签: 工具类 |
+    Spring事务 |
     
     wangjian - 爱编程，爱折腾
 </title>
@@ -147,166 +155,192 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
-    
-    <li>
-        工具类
-    </li>
-    
-    
-</ol>
-
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
 <article class="post">
+    <div class="post-head">
+        <h1 id="Spring事务">
+            
+            Spring事务
+            
+        </h1>
+        <div class="post-meta">
     
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/tools.html">
-                    Java工具类</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2020年04月03日
-                </time>
-            </div>
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Spring/">Spring</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Spring/" rel="tag">Spring</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/08</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="一-事务的概念和特性"><a href="#一-事务的概念和特性" class="headerlink" title="一.事务的概念和特性"></a>一.事务的概念和特性</h1><p>概念：事务指的是逻辑上的一组操作，这个操作要么全部成功，要么全部失败。<br>特性：        </p>
+<table border="1">
+<tr>
+    <th width="20%">特性</th>
+    <th>描述</th>
+</tr>
+<tr>
+      <td>原子性</td>
+      <td>事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生</td>
+</tr>
+<tr>
+      <td>一致性</td>
+      <td>事务前后数据的完整性必须保持一致</td>
+</tr>
+<tr>
+      <td>隔离性</td>
+      <td>多个用户并发访问数据库时，一个用户的事务不能被其他用户的事务所干扰，多个并发事务之间数据要相互隔离</td>
+</tr>
+<tr>
+      <td>持久性</td>
+      <td>一个事务一旦被提交，它对数据库中数据的改变就是永久性的，即使数据库发生故障也不应该对其有任何影响</td>
+</tr>
+</table>
+
+<h1 id="二-事务的API"><a href="#二-事务的API" class="headerlink" title="二.事务的API"></a>二.事务的API</h1><p>Spring事务管理高层抽象主要包括3个接口<br>PlatformTransactionManager:事务管理器<br>TransactionDefinition:事务定义信息（隔离，传播，超时，只读）<br>TransactionStatus:事务具体运行状态<br><img src="https://raw.githubusercontent.com/atwangjian/img/master/spring/1.png" alt="">    </p>
+<h2 id="2-1-PlatformTransactionManager"><a href="#2-1-PlatformTransactionManager" class="headerlink" title="2.1 PlatformTransactionManager"></a>2.1 PlatformTransactionManager</h2><p>Spring为不同的持久化框架提供了不同PlatformTransactionManager接口实现</p>
+<table border="1">
+<tr>
+    <th width="40%">事务</th>
+    <th>说明</th>
+</tr>
+<tr>
+      <td>org.springframework.jdbc.datasource.DataSourceTransactionManager</td>
+      <td>使用Spring JDBC或ibatis进行持久化数据时使用</td>
+</tr>
+<tr>
+      <td>org.springframework.orm.hibernate3.HibernateTransactionManager</td>
+      <td>使用Hibernate3.0版本进行持久化数据时使用</td>
+</tr>
+<tr>
+      <td>org.springframework.orm.jpa.JpaTransactionManager</td>
+      <td>使用JPA进行持久时使用</td>
+</tr>
+<tr>
+      <td>org.springframework.orm.jdo.JdoTransactionManager</td>
+      <td>当持久化机制是Jdo时使用</td>
+</tr>
+<tr>           <td>org.springframework.transaction.jta.JtaTransactionManager</td>
+      <td>使用一个JTA实现来管理事务，在一个事务跨越多个资源时必须使用</td>
+</tr>
+</table>
+
+
+
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/zhifubao.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/weixin.png"><b>微信打赏</b>
+            </span>
+            
         </div>
-        <p class="brief">
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
             
-            一.String字符串1.对字符串去除符号并转为json123456789101112131415public static void removeSymbol() &amp;#123;        String msg = &#34;\&#34;&amp;#12...
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处<a href="http://atwangjian.cn" target="_blank">http://atwangjian.cn</a>
             
-        </p>
+            
+        </div>     
+        <div>
+            
+        </div>
+        <p>
+        <div>
+        	<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        </div>
     </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/test.html" class="next-post btn btn-default" title='测试专用'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            测试专用</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
 
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: '4GVjAHT57wrVSFgcukAADkSP-gzGzoHsz',
+    appKey: 'yNilC5ml46aQXsF4KI8SEQby',
+    placeholder: '说点什么吧！',
+    notify: true,
+    verify: true,
+    avatar: 'wavatar',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
 
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        本站搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="大佬！搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        网站公告
-    </h3>
-    <div class="notification">
-        <p>
-   树叶的一生是为了归根吗？
-</p>
-    </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/atwangjian" rel="external nofollow" title="Github" target="_blank">
-            <i class="git fa fa-git"></i>
-        </a>
-        
-        <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=HSUqKy0vKi8qK11sbDN_cnA" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://music.163.com/#/user/home?id=125224107" rel="external nofollow" title="网易云音乐" target="_blank">
-            <i class="headphones fa fa-headphones"></i>
-        </a>
-        
-        <a href="http://weibo.com/u/5783171588" rel="external nofollow" title="新浪微博" target="_blank">
-            <i class="weibo fa fa-weibo"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-事务的概念和特性"><span class="toc-text">一.事务的概念和特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-事务的API"><span class="toc-text">二.事务的API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-PlatformTransactionManager"><span class="toc-text">2.1 PlatformTransactionManager</span></a></li></ol></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        文章分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/"><i class="fa" aria-hidden="true">Java</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/"><i class="fa" aria-hidden="true">测试</i></a><span class="category-list-count">1</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        文章归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><i class="fa" aria-hidden="true">2020年04月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/"><i class="fa" aria-hidden="true">2020年02月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        热门标签
-    </h3>
-    <div class="content tag-cloud">
-        
-        <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 10px;">工具类</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
-        
-    </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友情链接
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="http://cnpanda.net/" class="fa" target="_blank">
-            Panda</a>
-        
-        <a href="http://cvccy.com/" class="fa" target="_blank">
-            hf&#39;s blog</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -340,10 +374,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
