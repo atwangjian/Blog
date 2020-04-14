@@ -248,8 +248,72 @@
 </tr>
 </table>
 
+<h2 id="2-2-TransactionDefinition"><a href="#2-2-TransactionDefinition" class="headerlink" title="2.2 TransactionDefinition"></a>2.2 TransactionDefinition</h2><h3 id="2-2-1-隔离级别"><a href="#2-2-1-隔离级别" class="headerlink" title="2.2.1 隔离级别"></a>2.2.1 隔离级别</h3><table border="1">
+<tr>
+    <th width="40%">隔离级别</th>
+    <th>含义</th>
+</tr>
+<tr>
+      <td>DEFAULT</td>
+      <td>使用后端数据库默认的隔离级别（srping中的选择项）</td>
+</tr>
+<tr>
+      <td>READ_UNCOMMITED</td>
+      <td>允许你读取还未提交的改变了的数据，可能导致脏，幻，不可重复读</td>
+</tr>
+<tr>
+      <td>READ_UNCOMMITTED</td>
+      <td>允许在并发事务已经提交后读取，可防止脏读，但幻读和不可重复读仍可发生</td>
+</tr>
+<tr>
+      <td>REPEATABLE_READ</td>
+      <td>对相同字段的多次读取时一致的，除非数据被事务本身改变，可防止脏，不可重复读，但幻读仍可能发生</td>
+</tr>
+<tr>             <td>SERIALIZABLE</td>
+      <td>完全服从ACID的隔离级别，确保不发生脏，幻，不可重复读。这在所有的隔离级别中是最低的，它是典型的通过完全锁定在事务中涉及的数据表来完成的</td>
+</tr>
+</table>
 
+<p>Mysql默认采用REPEATABLE_READ隔离级别，Oracle默认采用READ_COMMITTED隔离级别。</p>
+<p><strong>脏读</strong>：一个事务读取了另一个事务改写但还未提交的数据，如果这些数据被回滚，则读到的数据是无效的。<br><strong>不可重复读</strong>：在同一个事务中，多次读取同一数据返回的结果有所不同。<br><strong>幻读</strong>：一个事务读取了几行记录后，另一个事务插入一些记录，幻读就发生了。再后来的查询中，第一个事务就会发现有些原来没有的记录。</p>
+<h3 id="2-2-1-传播行为"><a href="#2-2-1-传播行为" class="headerlink" title="2.2.1 传播行为"></a>2.2.1 传播行为</h3><table border="1">
+<tr>
+    <th width="40%">事务传播行为类型</th>
+    <th>说明</th>
+</tr>
+<tr>
+      <td>PROPAGATION_REQUIRED    </td>
+      <td>支持当前事务，假设当前没有事务。就新建一个事务）</td>
+</tr>
+<tr>
+      <td>PROPAGATION_SUPPORTS</td>
+      <td>支持当前事务，假设当前没有事务，就以非事务方式运行</td>
+</tr>
+<tr>
+      <td>PROPAGATION_MANDATORY</td>
+      <td>支持当前事务，假设当前没有事务，就抛出异常</td>
+</tr>
+<tr>
+      <td>PROPAGATION_REQUIRES_NEW</td>
+      <td>新建事务，假设当前存在事务。把当前事务挂起</td>
+</tr>
+<tr>           
+      <td>PROPAGATION_NOT_SUPPORTED</td>
+      <td>以非事务方式运行操作。假设当前存在事务，就把当前事务挂起</td>
+</tr>
+<tr>           
+      <td>PROPAGATION_NEVER</td>
+      <td>以非事务方式运行，假设当前存在事务，则抛出异常</td>
+</tr>
+<tr>           
+      <td>PROPAGATION_NESTED</td>
+      <td>如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。</td>
+</tr>
+</table>
 
+<p><img src="https://raw.githubusercontent.com/atwangjian/img/master/spring/2.png" alt="分析"></p>
+<p>aaa,bbb的这2个操作是在一个事务里面的<br>aaa,bbb的这2个操作不在一个事务里面的<br>aaa执行完以后，设置一个保存点，当bbb发生异常以后，回滚到保存点或最初始状态   </p>
+<p>其他博客：<a href="https://blog.csdn.net/qq_38526573/article/details/87898161" target="_blank" rel="noopener">https://blog.csdn.net/qq_38526573/article/details/87898161</a></p>
 
     </div>
     
@@ -337,7 +401,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-事务的概念和特性"><span class="toc-text">一.事务的概念和特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-事务的API"><span class="toc-text">二.事务的API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-PlatformTransactionManager"><span class="toc-text">2.1 PlatformTransactionManager</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-事务的概念和特性"><span class="toc-text">一.事务的概念和特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-事务的API"><span class="toc-text">二.事务的API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-PlatformTransactionManager"><span class="toc-text">2.1 PlatformTransactionManager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-TransactionDefinition"><span class="toc-text">2.2 TransactionDefinition</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-隔离级别"><span class="toc-text">2.2.1 隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-传播行为"><span class="toc-text">2.2.1 传播行为</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
