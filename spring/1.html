@@ -221,7 +221,7 @@
 </table>
 
 <h1 id="二-事务的API"><a href="#二-事务的API" class="headerlink" title="二.事务的API"></a>二.事务的API</h1><p>Spring事务管理高层抽象主要包括3个接口<br>PlatformTransactionManager:事务管理器<br>TransactionDefinition:事务定义信息（隔离，传播，超时，只读）<br>TransactionStatus:事务具体运行状态<br><img src="https://raw.githubusercontent.com/atwangjian/img/master/spring/1.png" alt="">    </p>
-<h2 id="2-1-PlatformTransactionManager"><a href="#2-1-PlatformTransactionManager" class="headerlink" title="2.1 PlatformTransactionManager"></a>2.1 PlatformTransactionManager</h2><p>Spring为不同的持久化框架提供了不同PlatformTransactionManager接口实现</p>
+<h2 id="2-1-PlatformTransactionManager"><a href="#2-1-PlatformTransactionManager" class="headerlink" title="2.1 PlatformTransactionManager"></a>2.1 PlatformTransactionManager</h2><p>Spring为不同的持久化框架提供了不同PlatformTransactionManager接口实现,该接口中提供了三个事务操作方法，具体如下。<br>TransactionStatus getTransaction（TransactionDefinition definition）：用于获取事务状态信息。<br>void commit（TransactionStatus status）：用于提交事务。<br>void rollback（TransactionStatus status）：用于回滚事务。</p>
 <table border="1">
 <tr>
     <th width="40%">事务</th>
@@ -248,7 +248,9 @@
 </tr>
 </table>
 
-<h2 id="2-2-TransactionDefinition"><a href="#2-2-TransactionDefinition" class="headerlink" title="2.2 TransactionDefinition"></a>2.2 TransactionDefinition</h2><h3 id="2-2-1-隔离级别"><a href="#2-2-1-隔离级别" class="headerlink" title="2.2.1 隔离级别"></a>2.2.1 隔离级别</h3><table border="1">
+
+<h2 id="2-2-TransactionDefinition"><a href="#2-2-TransactionDefinition" class="headerlink" title="2.2 TransactionDefinition"></a>2.2 TransactionDefinition</h2><p>TransactionDefinition 接口是事务定义（描述）的对象，它提供了事务相关信息获取的方法，其中包括五个操作，具体如下。<br>String getName()：获取事务对象名称。<br>int getIsolationLevel()：获取事务的隔离级别。<br>int getPropagationBehavior()：获取事务的传播行为。<br>int getTimeout()：获取事务的超时时间。<br>boolean isReadOnly()：获取事务是否只读。   </p>
+<h3 id="2-2-1-隔离级别"><a href="#2-2-1-隔离级别" class="headerlink" title="2.2.1 隔离级别"></a>2.2.1 隔离级别</h3><table border="1">
 <tr>
     <th width="40%">隔离级别</th>
     <th>含义</th>
@@ -313,6 +315,7 @@
 
 <p><img src="https://raw.githubusercontent.com/atwangjian/img/master/spring/2.png" alt="分析"></p>
 <p>aaa,bbb的这2个操作是在一个事务里面的<br>aaa,bbb的这2个操作不在一个事务里面的<br>aaa执行完以后，设置一个保存点，当bbb发生异常以后，回滚到保存点或最初始状态   </p>
+<h2 id="3-1-TransactionStatus"><a href="#3-1-TransactionStatus" class="headerlink" title="3.1 TransactionStatus"></a>3.1 TransactionStatus</h2><p>TransactionStatus 接口是事务的状态，它描述了某一时间点上事务的状态信息。其中包含六个操作<br>void flush()    刷新事务<br>boolean hasSavepoint()    获取是否存在保存点<br>boolean isCompleted()    获取事务是否完成<br>boolean isNewTransaction()    获取是否是新事务<br>boolean isRollbackOnly()    获取是否回滚<br>void setRollbackOnly()    设置事务回滚    </p>
 <p>其他博客：<a href="https://blog.csdn.net/qq_38526573/article/details/87898161" target="_blank" rel="noopener">https://blog.csdn.net/qq_38526573/article/details/87898161</a></p>
 
     </div>
@@ -401,7 +404,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-事务的概念和特性"><span class="toc-text">一.事务的概念和特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-事务的API"><span class="toc-text">二.事务的API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-PlatformTransactionManager"><span class="toc-text">2.1 PlatformTransactionManager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-TransactionDefinition"><span class="toc-text">2.2 TransactionDefinition</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-隔离级别"><span class="toc-text">2.2.1 隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-传播行为"><span class="toc-text">2.2.1 传播行为</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-事务的概念和特性"><span class="toc-text">一.事务的概念和特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-事务的API"><span class="toc-text">二.事务的API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-PlatformTransactionManager"><span class="toc-text">2.1 PlatformTransactionManager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-TransactionDefinition"><span class="toc-text">2.2 TransactionDefinition</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-隔离级别"><span class="toc-text">2.2.1 隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-传播行为"><span class="toc-text">2.2.1 传播行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-TransactionStatus"><span class="toc-text">3.1 TransactionStatus</span></a></li></ol></li></ol>
         
     </div>
 </aside>
