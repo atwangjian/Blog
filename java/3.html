@@ -1,0 +1,362 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="wangjian - 爱编程，爱折腾">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://atwangjian.cn">
+    <!--SEO-->
+
+<meta name="keywords" content="java" />
+
+
+<meta name="description" content="一.基本概念1.1 程序，进程和线程程序（program)是为了完成特定任务，用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。进程(process)是程序的一次执行过程，或是正在运..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    还不会多线程？ |
+    
+    wangjian - 爱编程，爱折腾
+</title>
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='wangjian'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                Java开发|Crud小能手
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://atwangjian.cn">
+                        wangjian - 爱编程，爱折腾</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/liuyanban.html"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/build/"><i class="fa "></i>
+                                建站日志</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/bookmark/"><i class="fa "></i>
+                                书签</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tools.html"><i class="fa "></i>
+                                工具类</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/others.html"><i class="fa "></i>
+                                代做Java系统</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="还不会多线程？">
+            
+            还不会多线程？
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/java/" rel="tag">java</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/04/23</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h1><h2 id="1-1-程序，进程和线程"><a href="#1-1-程序，进程和线程" class="headerlink" title="1.1 程序，进程和线程"></a>1.1 程序，进程和线程</h2><p><strong>程序</strong>（program)是为了完成特定任务，用某种语言编写的一组指令的集合。<span style="color:red">即指一段静态的代码</span>，静态对象。<br><strong>进程</strong>(process)是程序的一次执行过程，或是正在运行的一个程序。是一个动态的过程：有它自身的产生、存在和消亡的过程。——生命周期<br>如：运行中的QQ，运行中的MP3播放器<br>●程序是静态的，进程是动态的<br>●<span style="color:red">进程作为资源分配的单位</span>，系统在运行时会为每个进程分配不同的内存<br><strong>线程</strong>(thread)，进程可进一步细化为线程，是一个程序内部的一条执行路径。<br>●若一个进程同一时间并行执行多个线程，就是支持多线程的<br>●<span style="color:red">线程作为调度和执行的单位，每个线程拥有独立的运行栈和程序计数器(pc)</span>，线程切换的开<br>销小<br>●一个进程中的多个线程共享相同的内存单元/内存地址空间它们从同一堆中分配对象，可以<br>访问相同的变量和对象。这就使得线程间通信更简便、高效。但多个线程操作共享的系统资<br>源可能就会带来<span style="color:red">安全的隐患</span>。  </p>
+<h2 id="1-2-单核CPU和多核CPU"><a href="#1-2-单核CPU和多核CPU" class="headerlink" title="1.2 单核CPU和多核CPU"></a>1.2 单核CPU和多核CPU</h2><p>●单核CPU其实是一种假的多线程，因为在一个时间单元内，也只能执行一个线程的任务。<br>●如果是多核的话，才能更好的发挥多线程的效率。（现在的服务器都是多核的）<br>●一个Java应用程序java.exe，其实至少有三个线程：main()主线程，gc()垃圾回收线程，异常处理线程。当然如果发生异常，会影响主线程 </p>
+<h2 id="1-3-并行和并发"><a href="#1-3-并行和并发" class="headerlink" title="1.3 并行和并发"></a>1.3 并行和并发</h2><p><strong>并行</strong>：多个CPU同时执行多个任务。比如：多个人同时做不同的事。<br><strong>并发</strong>：一个CPU(采用时间片)“同时”执行多个任务。比如：秒杀、多个人做同一件事。</p>
+<h2 id="1-4-多线程优点"><a href="#1-4-多线程优点" class="headerlink" title="1.4 多线程优点"></a>1.4 多线程优点</h2><p>以单核CPU为例，只使用单个线程先后完成多个任务（调用多个方法），肯定比用多个线程来完成用的时间更短，为何仍需多线程呢？<br>多线程程序的优点：  </p>
+<ol>
+<li>提高应用程序的响应。对图形化界面更有意义，可增强用户体验。   </li>
+<li>提高计算机系统CPU的利用率   </li>
+<li>改善程序结构。将既长又复杂的进程分为多个线程，独立运行，利于理解和修改   </li>
+</ol>
+<h2 id="1-5-何时需要多线程"><a href="#1-5-何时需要多线程" class="headerlink" title="1.5 何时需要多线程"></a>1.5 何时需要多线程</h2><p>●程序需要同时执行两个或多个任务。<br>●程序需要实现一些需要等待的任务时，如用户输入、文件读写操作、网络操作、搜索等。   </p>
+<h1 id="二-线程的创建和使用"><a href="#二-线程的创建和使用" class="headerlink" title="二.线程的创建和使用"></a>二.线程的创建和使用</h1><h2 id="2-1-继承Thread类"><a href="#2-1-继承Thread类" class="headerlink" title="2.1 继承Thread类"></a>2.1 继承Thread类</h2><p>●Java语言的JVM允许程序运行多个线程，它通过java.lang.Thread类来体现。<br>Thread类的特性：<br>●每个线程都是通过某个特定Thread对象的run()方法来完成操作的，经常把run()方法的主体称为线程体<br>●通过该Thread对象的start()方法来启动这个线程，而非直接调用run</p>
+<h3 id="2-1-1-流程"><a href="#2-1-1-流程" class="headerlink" title="2.1.1 流程"></a>2.1.1 流程</h3><p>（1）定义子类继承Thread类。<br>（2）子类中重写Thread类中的run方法。<br>（3）创建Thread子类对象，即创建了线程对象。<br>（4）调用线程对象start方法：启动线程，调用run方法。</p>
+<h3 id="2-1-2-注意点"><a href="#2-1-2-注意点" class="headerlink" title="2.1.2 注意点"></a>2.1.2 注意点</h3><p>（1）如果自己手动调用run()方法，那么就只是普通方法，没有启动多线程模式。<br>（2） run()方法由JVM调用，什么时候调用，执行的过程控制都有操作系统的CPU调度决定。<br>（3）想要启动多线程，必须调用start方法。<br>（4）一个线程对象只能调用一次start()方法启动，如果重复调用了，则将抛出以上的异常“IllegalThreadStateException”。   </p>
+<h2 id="2-2-实现Runnable接口"><a href="#2-2-实现Runnable接口" class="headerlink" title="2.2 实现Runnable接口"></a>2.2 实现Runnable接口</h2><h3 id="2-2-1-流程"><a href="#2-2-1-流程" class="headerlink" title="2.2.1 流程"></a>2.2.1 流程</h3><p>（1）定义子类，实现Runnable接口。<br>（2）子类中重写Runnable接口中的run方法。<br>（3）通过Thread类含参构造器创建线程对象。<br>（4）将Runnable接口的子类对象作为实际参数传递给Thread类的构造器中。<br>（5）调用Thread类的start方法：开启线程，调用Runnable子类接口的run方法。   </p>
+<h2 id="2-3-Thread类的有关方法"><a href="#2-3-Thread类的有关方法" class="headerlink" title="2.3 Thread类的有关方法"></a>2.3 Thread类的有关方法</h2><p>●void start(): 启动线程，并执行对象的run()方法<br>●run(): 线程在被调度时执行的操作<br>●String getName(): 返回线程的名称<br>●void setName(String name):设置该线程名称<br>●static Thread currentThread(): 返回当前线程。在Thread子类中就是this，通常用于主线程和Runnable实现类<br>●static void yield()：线程让步<br> 暂停当前正在执行的线程，把执行机会让给优先级相同或更高的线程<br> 若队列中没有同优先级的线程，忽略此方法<br>●join() ：当某个程序执行流中调用其他线程的 join() 方法时，调用线程将被阻塞，直到 join() 方法加入的 join 线程执行完为止<br>●低优先级的线程也可以获得执行<br>●static void sleep(long millis)：(指定时间:毫秒)<br> 令当前活动线程在指定时间段内放弃对CPU控制,使其他线程有机会被执行,时间到后重排队。<br> 抛出InterruptedException异常<br>●stop(): 强制线程生命期结束，不推荐使用<br>●boolean isAlive()：返回boolean，判断线程是否还活着  </p>
+<h1 id="三-线程的生命周期"><a href="#三-线程的生命周期" class="headerlink" title="三.线程的生命周期"></a>三.线程的生命周期</h1><p>JDK中用Thread.State类定义了线程的几种状态<br>要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的五种状态：<br>●新建： 当一个Thread类或其子类的对象被声明并创建时，新生的线程对象处于新建状态<br>●就绪：处于新建状态的线程被start()后，将进入线程队列等待CPU时间片，此时它已具备了运行的条件，只是没分配到CPU资源<br>●运行：当就绪的线程被调度并获得CPU资源时,便进入运行状态， run()方法定义了线程的操作和功能<br>●阻塞：在某种特殊情况下，被人为挂起或执行输入输出操作时，让出 CPU 并临时中止自己的执行，进入阻塞状态<br>●死亡：线程完成了它的全部工作或线程被提前强制性地中止或出现异常导致结束   </p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/zhifubao.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/weixin.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处<a href="http://atwangjian.cn" target="_blank">http://atwangjian.cn</a>
+            
+            
+        </div>     
+        <div>
+            
+        </div>
+        <p>
+        <div>
+        	<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/java/2.html" class="pre-post btn btn-default" title='Lambda表达式'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Lambda表达式</span>
+    </a>
+    
+    
+    <a href="/others.html" class="next-post btn btn-default" title='Java系统定制'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Java系统定制</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: '4GVjAHT57wrVSFgcukAADkSP-gzGzoHsz',
+    appKey: 'yNilC5ml46aQXsF4KI8SEQby',
+    placeholder: '说点什么吧！',
+    notify: true,
+    verify: true,
+    avatar: 'wavatar',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-基本概念"><span class="toc-text">一.基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-程序，进程和线程"><span class="toc-text">1.1 程序，进程和线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-单核CPU和多核CPU"><span class="toc-text">1.2 单核CPU和多核CPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-并行和并发"><span class="toc-text">1.3 并行和并发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-多线程优点"><span class="toc-text">1.4 多线程优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-何时需要多线程"><span class="toc-text">1.5 何时需要多线程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-线程的创建和使用"><span class="toc-text">二.线程的创建和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-继承Thread类"><span class="toc-text">2.1 继承Thread类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-流程"><span class="toc-text">2.1.1 流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-注意点"><span class="toc-text">2.1.2 注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-实现Runnable接口"><span class="toc-text">2.2 实现Runnable接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-流程"><span class="toc-text">2.2.1 流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Thread类的有关方法"><span class="toc-text">2.3 Thread类的有关方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-线程的生命周期"><span class="toc-text">三.线程的生命周期</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">wangjian</a>
+                </span>             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":280},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+</html>
