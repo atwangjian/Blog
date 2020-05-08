@@ -1,0 +1,434 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="wangjian - 爱编程，爱折腾">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://atwangjian.cn">
+    <!--SEO-->
+
+<meta name="keywords" content="中间件" />
+
+
+<meta name="description" content="一.简介1.1 JMS简介JMS即Java消息服务（Java Message Service）应用程序接口，是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    ActiveMQ |
+    
+    wangjian - 爱编程，爱折腾
+</title>
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='wangjian'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                Java开发|Crud小能手
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://atwangjian.cn">
+                        wangjian - 爱编程，爱折腾</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/liuyanban.html"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/build/"><i class="fa "></i>
+                                建站日志</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/bookmark/"><i class="fa "></i>
+                                书签</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tools.html"><i class="fa "></i>
+                                工具类</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/others.html"><i class="fa "></i>
+                                代做Java系统</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="ActiveMQ">
+            
+            ActiveMQ
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/08</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h1><h2 id="1-1-JMS简介"><a href="#1-1-JMS简介" class="headerlink" title="1.1 JMS简介"></a>1.1 JMS简介</h2><p>JMS即Java消息服务（Java Message Service）应用程序接口，是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。   </p>
+<p>JMS是一种与厂商无关的 API，用来访问收发系统消息，它类似于JDBC(Java Database Connectivity)。这里，JDBC 是可以用来访问许多不同关系数据库的 API，而 JMS 则提供同样与厂商无关的访问方法，以访问消息收发服务。许多厂商都支持 JMS，包括 IBM 的 MQSeries、BEA的 Weblogic JMS service和 Progress 的 SonicMQ。 JMS 使您能够通过消息收发服务（有时称为消息中介程序或路由器）从一个 JMS 客户机向另一个 JMS客户机发送消息。消息是 JMS 中的一种类型对象，由两部分组成：报头和消息主体。报头由路由信息以及有关该消息的元数据组成。消息主体则携带着应用程序的数据或有效负载。根据有效负载的类型来划分，可以将消息分为几种类型，它们分别携带：简单文本(TextMessage)、可序列化的对象 (ObjectMessage)、属性集合 (MapMessage)、字节流 (BytesMessage)、原始值流 (StreamMessage)，还有无有效负载的消息 (Message)。</p>
+<h2 id="1-2-ActiveMQ简介"><a href="#1-2-ActiveMQ简介" class="headerlink" title="1.2 ActiveMQ简介"></a>1.2 ActiveMQ简介</h2><p>Apache ActiveMQ是Apache软件基金会所研发的开放源代码消息中间件；由于ActiveMQ是一个纯Java程序，因此只需要操作系统支持Java虚拟机，ActiveMQ便可执行。   </p>
+<h2 id="1-3-ActiveMQ启动和运行"><a href="#1-3-ActiveMQ启动和运行" class="headerlink" title="1.3 ActiveMQ启动和运行"></a>1.3 ActiveMQ启动和运行</h2><p>主页：<a href="http://activemq.apache.org/" target="_blank" rel="noopener">http://activemq.apache.org/</a><br>目前最新版本：5.15.12 (March 9, 2020)<br>开发包及源码下载地址：<a href="http://activemq.apache.orgactivemq-5111-release.htmActiveMQ" target="_blank" rel="noopener">http://activemq.apache.orgactivemq-5111-release.htmActiveMQ</a><br>服务启动地址：<a href="http://127.0.0.1:8161/admin/" target="_blank" rel="noopener">http://127.0.0.1:8161/admin/</a><br>用户名/密码：admin/admin   </p>
+<h1 id="二-ActiveMQ点对点消息实现"><a href="#二-ActiveMQ点对点消息实现" class="headerlink" title="二.ActiveMQ点对点消息实现"></a>二.ActiveMQ点对点消息实现</h1><h2 id="2-1-直接-Receive-方式"><a href="#2-1-直接-Receive-方式" class="headerlink" title="2.1 直接 Receive 方式"></a>2.1 直接 Receive 方式</h2><p>Session.AUTO_ACKNOWLEDGE。当客户成功的从receive方法返回的时候，或者从MessageListener.onMessage方法成功返回的时候，会话自动确认客户收到的消息。<br>Session.CLIENT_ACKNOWLEDGE。 客户通过消息的 acknowledge 方法确认消息。需要注意的是，在这种模式中，确认是在会话层上进行：确认一个被消费的消息将自动确认所有已被会话消 费的消息。例如，如果一个消息消费者消费了 10 个消息，然后确认第 5 个消息，那么所有 10 个消息都被确认。<br>Session.DUPS_ACKNOWLEDGE。 该选择只是会话迟钝第确认消息的提交。如果 JMS provider 失败，那么可能会导致一些重复的消息。如果是重复的消息，那么 JMS provider 必须把消息头的 JMSRedelivered 字段设置为 true。</p>
+<p><strong>生产者</strong>：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	package main.activeMq;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">import</span> org.apache.activemq.ActiveMQConnection;</span><br><span class="line">	<span class="keyword">import</span> org.apache.activemq.ActiveMQConnectionFactory;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">import</span> javax.jms.Connection;</span><br><span class="line">	<span class="keyword">import</span> javax.jms.ConnectionFactory;</span><br><span class="line">	<span class="keyword">import</span> javax.jms.Destination;</span><br><span class="line">	<span class="keyword">import</span> javax.jms.JMSException;</span><br><span class="line">	<span class="keyword">import</span> javax.jms.MessageProducer;</span><br><span class="line">	<span class="keyword">import</span> javax.jms.Session;</span><br><span class="line">	<span class="keyword">import</span> javax.jms.TextMessage;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 消息生产者</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * @author wangjian</span></span><br><span class="line"><span class="comment">	 * @date 2020/5/8 22:26</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Producer</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 默认的用户名，密码，连接地址</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> USERNAME = ActiveMQConnection.DEFAULT_USER;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> PASSWORD = ActiveMQConnection.DEFAULT_PASSWORD;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> URL = ActiveMQConnection.DEFAULT_BROKER_URL;</span><br><span class="line">    <span class="comment">// 发送消息数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SENDNUM = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line">        ConnectionFactory connectionFactory;  <span class="comment">// 连接工厂</span></span><br><span class="line">        Connection connection = null;  <span class="comment">// 连接</span></span><br><span class="line">        Session session; <span class="comment">// 会话：接收或者发送消息的线程</span></span><br><span class="line">        Destination destination; <span class="comment">// 消息的目的地</span></span><br><span class="line">        MessageProducer messageProducer; <span class="comment">// 消息生产者</span></span><br><span class="line">        <span class="comment">// 实例化连接工厂(URL:failover://tcp://localhost:61616)</span></span><br><span class="line">        connectionFactory = <span class="keyword">new</span> ActiveMQConnectionFactory(Producer.USERNAME, Producer.PASSWORD, Producer.URL);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 通过连接工厂获取连接</span></span><br><span class="line">            connection = connectionFactory.createConnection();</span><br><span class="line">            <span class="comment">// 启动</span></span><br><span class="line">            connection.start();</span><br><span class="line">            <span class="comment">// 创建session,true:开启事务</span></span><br><span class="line">            session = connection.createSession(<span class="literal">true</span>, SENDNUM);</span><br><span class="line">            <span class="comment">// 创建消息队列</span></span><br><span class="line">            destination = session.createQueue(<span class="string">"firstQueue"</span>); <span class="comment">// 点对点</span></span><br><span class="line">            <span class="comment">// destination = session.createTopic("firstTopic");  // 发布订阅</span></span><br><span class="line">            <span class="comment">// 创建消息生产者</span></span><br><span class="line">            messageProducer = session.createProducer(destination);</span><br><span class="line">            sendMessage(session, messageProducer);</span><br><span class="line">            session.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                connection.<span class="built_in">close</span>();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (JMSException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发送消息</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param session</span></span><br><span class="line"><span class="comment">     * @param producer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(Session session, MessageProducer producer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; SENDNUM; i++) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TextMessage textMessage = session.createTextMessage(<span class="string">"ActiveMQ 发送的消息："</span> + i);</span><br><span class="line">                System.out.<span class="built_in">println</span>(<span class="string">"发送消息："</span> + <span class="string">"ActiveMQ 发送的消息"</span> + i);</span><br><span class="line">                producer.send(textMessage);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (JMSException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**消费者**：</span><br><span class="line">	</span><br><span class="line">	</span><br></pre></td></tr></table></figure>  
+<pre><code>package main.activeMq;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.MessageConsumer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
+/**
+ * 消费者
+ *
+ * @author wangjian
+ * @date 2020/5/8 22:53
+ */
+public class Consumer {
+// 默认的用户名，密码，连接地址
+private static final String USERNAME = ActiveMQConnection.DEFAULT_USER;
+private static final String PASSWORD = ActiveMQConnection.DEFAULT_PASSWORD;
+private static final String URL = ActiveMQConnection.DEFAULT_BROKER_URL;
+
+
+public static void main(String[] args) {
+    ConnectionFactory connectionFactory;  // 连接工厂
+    Connection connection = null;  // 连接
+    Session session; // 会话：接收或者发送消息的线程
+    Destination destination; // 消息的目的地
+    MessageConsumer messageConsumer; // 消息消费者
+    // 实例化连接工厂
+    connectionFactory = new ActiveMQConnectionFactory(Consumer.USERNAME, Consumer.PASSWORD, Consumer.URL);
+    try {
+        // 创建连接
+        connection = connectionFactory.createConnection();
+        // 启动连接
+        connection.start();
+        // 创建session
+        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        destination = session.createQueue(&quot;firstQueue&quot;);
+        MessageConsumer sessionConsumer = session.createConsumer(destination);
+        while (true) {
+            TextMessage textMessage = (TextMessage) sessionConsumer.receive();
+            if (textMessage != null) {
+                System.out.println(&quot;收到的消息:&quot; + textMessage.getText());
+            } else {
+                break;
+            }
+        }
+    } catch (JMSException e) {
+        e.printStackTrace();
+    }
+}
+}</code></pre><h2 id="2-2-使用-Listener-监听方式"><a href="#2-2-使用-Listener-监听方式" class="headerlink" title="2.2 使用 Listener 监听方式"></a>2.2 使用 Listener 监听方式</h2><p><strong>Listener监听</strong>：</p>
+<pre><code>{% codeblock %}
+	package main.activeMq;
+	
+	import javax.jms.JMSException;
+	import javax.jms.Message;
+	import javax.jms.MessageListener;
+	import javax.jms.TextMessage;
+	
+	/**
+	 * 消息监听
+	 *
+	 * @author wangjian
+	 * @date 2020/5/8 23:01
+	 */
+	public class Listener implements MessageListener {
+    @Override
+    public void onMessage(Message message) {
+        try {
+            System.out.println("收到的消息：" + ((TextMessage) message).getText());
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
+    }
+    }
+
+{% endcodeblock %}  </code></pre><p><strong>消费者</strong>：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package main.activeMq;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.activemq.ActiveMQConnection;</span><br><span class="line"><span class="keyword">import</span> org.apache.activemq.ActiveMQConnectionFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.jms.Connection;</span><br><span class="line"><span class="keyword">import</span> javax.jms.ConnectionFactory;</span><br><span class="line"><span class="keyword">import</span> javax.jms.Destination;</span><br><span class="line"><span class="keyword">import</span> javax.jms.JMSException;</span><br><span class="line"><span class="keyword">import</span> javax.jms.MessageConsumer;</span><br><span class="line"><span class="keyword">import</span> javax.jms.Session;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 消费者：监听方式</span></span><br><span class="line"><span class="comment"> * @author wangjian</span></span><br><span class="line"><span class="comment"> * @date 2020/5/8 23:03</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer2</span> &#123;</span></span><br><span class="line">   <span class="comment">// 默认的用户名，密码，连接地址</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> USERNAME = ActiveMQConnection.DEFAULT_USER;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> PASSWORD = ActiveMQConnection.DEFAULT_PASSWORD;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> URL = ActiveMQConnection.DEFAULT_BROKER_URL;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line">       ConnectionFactory connectionFactory;  <span class="comment">// 连接工厂</span></span><br><span class="line">       Connection connection = null;  <span class="comment">// 连接</span></span><br><span class="line">       Session session; <span class="comment">// 会话：接收或者发送消息的线程</span></span><br><span class="line">       Destination destination; <span class="comment">// 消息的目的地</span></span><br><span class="line">       MessageConsumer messageConsumer; <span class="comment">// 消息消费者</span></span><br><span class="line">       <span class="comment">// 实例化连接工厂</span></span><br><span class="line">       connectionFactory = <span class="keyword">new</span> ActiveMQConnectionFactory(Consumer2.USERNAME, Consumer2.PASSWORD, Consumer2.URL);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// 创建连接</span></span><br><span class="line">           connection = connectionFactory.createConnection();</span><br><span class="line">           <span class="comment">// 启动连接</span></span><br><span class="line">           connection.start();</span><br><span class="line">           <span class="comment">// 创建session</span></span><br><span class="line">           session = connection.createSession(<span class="literal">false</span>, Session.AUTO_ACKNOWLEDGE);</span><br><span class="line">           <span class="comment">// 创建消息的连接队列</span></span><br><span class="line">           destination = session.createQueue(<span class="string">"firstQueue"</span>);</span><br><span class="line">           <span class="comment">// 创建消息消费者</span></span><br><span class="line">           MessageConsumer sessionConsumer = session.createConsumer(destination);</span><br><span class="line">           <span class="comment">// 注册消息监听</span></span><br><span class="line">           sessionConsumer.setMessageListener(<span class="keyword">new</span> Listener());</span><br><span class="line">       &#125; <span class="keyword">catch</span> (JMSException e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="三-ActiveMQ-发布-订阅消息模式实现"><a href="#三-ActiveMQ-发布-订阅消息模式实现" class="headerlink" title="三.ActiveMQ 发布-订阅消息模式实现"></a>三.ActiveMQ 发布-订阅消息模式实现</h1><p>必须先订阅，后发布</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">destination</span> = session.createTopic(<span class="string">"firstTopic"</span>)<span class="comment">;  // 发布订阅</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/zhifubao.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/weixin.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处<a href="http://atwangjian.cn" target="_blank">http://atwangjian.cn</a>
+            
+            
+        </div>     
+        <div>
+            
+        </div>
+        <p>
+        <div>
+        	<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/java/2.html" class="next-post btn btn-default" title='Lambda表达式'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Lambda表达式</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: '4GVjAHT57wrVSFgcukAADkSP-gzGzoHsz',
+    appKey: 'yNilC5ml46aQXsF4KI8SEQby',
+    placeholder: '说点什么吧！',
+    notify: true,
+    verify: true,
+    avatar: 'wavatar',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-简介"><span class="toc-text">一.简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-JMS简介"><span class="toc-text">1.1 JMS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-ActiveMQ简介"><span class="toc-text">1.2 ActiveMQ简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-ActiveMQ启动和运行"><span class="toc-text">1.3 ActiveMQ启动和运行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-ActiveMQ点对点消息实现"><span class="toc-text">二.ActiveMQ点对点消息实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-直接-Receive-方式"><span class="toc-text">2.1 直接 Receive 方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-使用-Listener-监听方式"><span class="toc-text">2.2 使用 Listener 监听方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-ActiveMQ-发布-订阅消息模式实现"><span class="toc-text">三.ActiveMQ 发布-订阅消息模式实现</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">wangjian</a>
+                </span>             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":280},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+</html>
