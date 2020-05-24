@@ -1,0 +1,373 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="wangjian - 爱编程，爱折腾">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://atwangjian.cn">
+    <!--SEO-->
+
+<meta name="keywords" content="中间件" />
+
+
+<meta name="description" content="一.简介1.1 redis简介redis是开源免费的高性能key-value数据库，属于NoSQL数据库。redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    redis |
+    
+    wangjian - 爱编程，爱折腾
+</title>
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='wangjian'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                Java开发|Crud小能手
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://atwangjian.cn">
+                        wangjian - 爱编程，爱折腾</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/liuyanban.html"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/build/"><i class="fa "></i>
+                                建站日志</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/bookmark/"><i class="fa "></i>
+                                书签</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tools.html"><i class="fa "></i>
+                                工具类</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/others.html"><i class="fa "></i>
+                                代做Java系统</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="redis">
+            
+            redis
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/23</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h1><h2 id="1-1-redis简介"><a href="#1-1-redis简介" class="headerlink" title="1.1 redis简介"></a>1.1 redis简介</h2><p><img src="https://ae01.alicdn.com/kf/Hfbf2f4879b6d46f3b1e6f61613ad09e6g.jpg" alt="redis"><br>redis是开源免费的高性能key-value数据库，属于NoSQL数据库。<br>redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。<br>redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。<br>redis支持数据的备份，即master-slave模式的数据备份。  </p>
+<p>redis与其他key-value缓存产品有如下三个特点：<br>（1）性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。<br>（2）丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。<br>（3）原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。<br>（4）丰富的特性 – Redis还支持 发布订阅消息, 通知, key 过期等等特性。  </p>
+<h2 id="1-2-redis安装"><a href="#1-2-redis安装" class="headerlink" title="1.2 redis安装"></a>1.2 redis安装</h2><p>下载地址（windows版本)<br><a href="https://github.com/MicrosoftArchive/redis/releases" target="_blank" rel="noopener">https://github.com/MicrosoftArchive/redis/releases</a>  </p>
+<p>完整版本下载地址（Linux）：<br><a href="http://download.redis.io/releases/" target="_blank" rel="noopener">http://download.redis.io/releases/</a>  </p>
+<p>Redis Desktop Manager（可视化连接工具）<br>下载地址：<a href="https://www.cr173.com/soft/73300.html" target="_blank" rel="noopener">https://www.cr173.com/soft/73300.html</a>  </p>
+<h2 id="1-3-启动"><a href="#1-3-启动" class="headerlink" title="1.3 启动"></a>1.3 启动</h2><p>1.先启动服务端<br>命令：redis-server.exe redis.windows.conf<br>2.启动客户端<br>命令：redis-cli.exe  </p>
+<h1 id="二-redis数据结构，命令"><a href="#二-redis数据结构，命令" class="headerlink" title="二.redis数据结构，命令"></a>二.redis数据结构，命令</h1><p>keys * : 查询所有的键<br>type key ： 获取键对应的value的类型<br>del key：删除指定的key value  </p>
+<h2 id="2-1-String"><a href="#2-1-String" class="headerlink" title="2.1 String"></a>2.1 String</h2><p>string：字符串类型是非常常见的一种类型，Redis中的字符串类型和很多编程语言里的字符串类型差不多，但相对要灵活些。  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">key</span> <span class="keyword">value</span>	设置<span class="keyword">key</span>对应的值为<span class="keyword">string</span>类型的<span class="keyword">value</span>  </span><br><span class="line">mset key1 value1 [key2 value2...]	一次设置多个<span class="keyword">key</span>  </span><br><span class="line"><span class="keyword">get</span> <span class="keyword">key</span>	获取指定<span class="keyword">key</span>的<span class="keyword">value</span>值  </span><br><span class="line">mget key1 [key2 ...]	一次获取多个<span class="keyword">key</span>的<span class="keyword">value</span>值  </span><br><span class="line">incr <span class="keyword">key</span>	对<span class="keyword">key</span>的值做自增操作，返回新的值  </span><br><span class="line">decr <span class="keyword">key</span>	对<span class="keyword">key</span>的值做自减操作，返回新的值  </span><br><span class="line">incrby <span class="keyword">key</span> <span class="built_in">integer</span>	对<span class="keyword">key</span>的<span class="keyword">value</span>加指定<span class="built_in">integer</span>  </span><br><span class="line">decrby <span class="keyword">key</span> <span class="built_in">integer</span>	对<span class="keyword">key</span>的<span class="keyword">value</span>减指定<span class="built_in">integer</span>  </span><br><span class="line">append <span class="keyword">key</span> <span class="keyword">value</span>	给指定<span class="keyword">key</span>的字符串追加<span class="keyword">value</span>  </span><br><span class="line"><span class="keyword">substr</span> <span class="keyword">key</span> <span class="keyword">start</span> <span class="keyword">end</span>	截取<span class="keyword">key</span>，从<span class="keyword">start</span>（包含）到<span class="keyword">end</span>（包含）。注意只是返回截取的<span class="keyword">value</span>，源<span class="keyword">value</span>并没改变   </span><br></pre></td></tr></table></figure>  
+
+<p><img src="https://ae01.alicdn.com/kf/Hb259de02a2364379b05ffa680140154dB.jpg" alt="String例子"></p>
+<h2 id="2-2-list"><a href="#2-2-list" class="headerlink" title="2.2 list"></a>2.2 list</h2><p>list：列表可以看作是个双端队列，可以在列表两端推入和弹出元素。</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lpush key value: 将元素加入列表左表</span><br><span class="line">rpush key value：将元素加入列表右边</span><br><span class="line"><span class="keyword">lrange</span> key start end ：范围获取</span><br><span class="line">lpop key： 删除列表最左边的元素，并将元素返回</span><br><span class="line">rpop key： 删除列表最右边的元素，并将元素返回</span><br></pre></td></tr></table></figure>  
+<p><img src="https://ae01.alicdn.com/kf/He3af6fd546ce47dcb40d0cb5f9fe08ba7.jpg" alt="list例子"></p>
+<h2 id="2-3-hash"><a href="#2-3-hash" class="headerlink" title="2.3 hash"></a>2.3 hash</h2><p>hash：Redis中的散列可以让用户将多个键值对存储到一个Redis键中</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">存储： hset <span class="built_in">key</span> field <span class="built_in">value</span></span><br><span class="line">获取： hget <span class="built_in">key</span> field</span><br><span class="line">获取所有的field和<span class="built_in">value</span>： hgetall <span class="built_in">key</span></span><br><span class="line">删除： <span class="built_in">hdel</span> <span class="built_in">key</span> field</span><br></pre></td></tr></table></figure>  
+<p><img src="https://ae01.alicdn.com/kf/He3af6fd546ce47dcb40d0cb5f9fe08ba7.jpg" alt="hash例子"></p>
+<h2 id="2-4-set"><a href="#2-4-set" class="headerlink" title="2.4 set"></a>2.4 set</h2><p>set ： 不允许重复元素，集合最显著的特点应该就是其中的元素互不相同。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">存储：sadd <span class="built_in">key</span> <span class="built_in">value</span></span><br><span class="line">获取：smembers <span class="built_in">key</span>:获取<span class="built_in">set</span>集合中所有元素</span><br><span class="line">删除：srem <span class="built_in">key</span> <span class="built_in">value</span>:删除<span class="built_in">set</span>集合中的某个元素</span><br></pre></td></tr></table></figure>  
+<p><img src="https://ae01.alicdn.com/kf/He3af6fd546ce47dcb40d0cb5f9fe08ba7.jpg" alt="set例子"></p>
+<h2 id="2-5-sortedset"><a href="#2-5-sortedset" class="headerlink" title="2.5 sortedset"></a>2.5 sortedset</h2><p>sortedset：有序集合类型，不允许重复元素，且元素有顺序</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">存储：zadd<span class="built_in"> key</span> score <span class="keyword">value</span></span><br><span class="line">获取：zrange<span class="built_in"> key</span> <span class="keyword">start</span> <span class="keyword">end</span> [withscores]</span><br><span class="line">删除：zrem<span class="built_in"> key</span> <span class="keyword">value</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/H7d3220d106f149f7b2721f941e0df063W.jpg" alt="sortedset例子"></p>
+<h1 id="三-redis持久化"><a href="#三-redis持久化" class="headerlink" title="三.redis持久化"></a>三.redis持久化</h1><h2 id="3-1-RDB"><a href="#3-1-RDB" class="headerlink" title="3.1 RDB"></a>3.1 RDB</h2><p>在默认情况下，Redis将内存数据库快照保存到dump.rdb的二进制文件中。<br>可以对Redis进行设置，让它在“N秒内数据集至少有N个改动”， 这一条件被满足时，自动保存一次数据集。比如说：让Redis满足“60秒内至少有1000个键被改动”这一个条件时，自动保存一次数据集。  </p>
+<h2 id="3-2-AOF"><a href="#3-2-AOF" class="headerlink" title="3.2 AOF"></a>3.2 AOF</h2><p>开启AOF持久化<br>appendonly yes</p>
+<p>appendfsync always：每次有新命令追加到aof文件时就执行一个持久化，非常慢但是安全<br>appendfsync everysec：每秒执行一次持久化，足够快（和使用rdb持久化差不多）并且在故障时只会丢失1秒钟的数据<br>appendfsync no：从不持久化，将数据交给操作系统来处理。redis处理命令速度加快但是不安全。   </p>
+<h1 id="四-JavaWeb连接"><a href="#四-JavaWeb连接" class="headerlink" title="四.JavaWeb连接"></a>四.JavaWeb连接</h1><p>核心代码</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@RequestMapping(<span class="meta-string">"/list"</span>)</span></span><br><span class="line"><span class="keyword">public</span> Object listUser() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">null</span> != redisUtil.<span class="keyword">get</span>(<span class="string">"user"</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> redisUtil.<span class="keyword">get</span>(<span class="string">"user"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    List&lt;User&gt; userList = userService.list();</span><br><span class="line">    String userStr = JSONObject.toJSONString(userList);</span><br><span class="line">    redisUtil.<span class="keyword">set</span>(<span class="string">"user"</span>, userStr, <span class="number">10</span>);</span><br><span class="line">    <span class="keyword">return</span> userStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到已经set了：<br><img src="https://ae01.alicdn.com/kf/Hc0ef0b2300064d88aad54fd9297d36aaM.jpg" alt="set缓存">    </p>
+<p>10s内，再次请求时，是从缓存中获取的数据：<br><img src="https://ae01.alicdn.com/kf/H44d7fb910b704cec897baa6d0f22e050N.jpg" alt="从缓存中获取"></p>
+<p>代码：<br>链接：<a href="https://pan.baidu.com/s/1D-RJynE1zsjoWkvV5JBpwg" target="_blank" rel="noopener">https://pan.baidu.com/s/1D-RJynE1zsjoWkvV5JBpwg</a><br>提取码：lqhg</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/zhifubao.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/weixin.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处<a href="http://atwangjian.cn" target="_blank">http://atwangjian.cn</a>
+            
+            
+        </div>     
+        <div>
+            
+        </div>
+        <p>
+        <div>
+        	<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/middleware/1.html" class="next-post btn btn-default" title='ActiveMQ'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            ActiveMQ</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: '4GVjAHT57wrVSFgcukAADkSP-gzGzoHsz',
+    appKey: 'yNilC5ml46aQXsF4KI8SEQby',
+    placeholder: '说点什么吧！',
+    notify: true,
+    verify: true,
+    avatar: 'wavatar',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-简介"><span class="toc-text">一.简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-redis简介"><span class="toc-text">1.1 redis简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-redis安装"><span class="toc-text">1.2 redis安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-启动"><span class="toc-text">1.3 启动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-redis数据结构，命令"><span class="toc-text">二.redis数据结构，命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-String"><span class="toc-text">2.1 String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-list"><span class="toc-text">2.2 list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-hash"><span class="toc-text">2.3 hash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-set"><span class="toc-text">2.4 set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-sortedset"><span class="toc-text">2.5 sortedset</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-redis持久化"><span class="toc-text">三.redis持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-RDB"><span class="toc-text">3.1 RDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-AOF"><span class="toc-text">3.2 AOF</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-JavaWeb连接"><span class="toc-text">四.JavaWeb连接</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">wangjian</a>
+                </span>             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":280},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+</html>
