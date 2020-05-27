@@ -1,0 +1,363 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="wangjian - 爱编程，爱折腾">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://atwangjian.cn">
+    <!--SEO-->
+
+<meta name="keywords" content="中间件" />
+
+
+<meta name="description" content="Swagger篇一．简介1.什么是SwaggerSwagger是一组围绕OpenAPI规范构建的开源工具，可以帮助你设计、构建、记录和使用REST API。主要的Swagger工具包括：Swag..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Swagger和knife4j |
+    
+    wangjian - 爱编程，爱折腾
+</title>
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='wangjian'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                Java开发|Crud小能手
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://atwangjian.cn">
+                        wangjian - 爱编程，爱折腾</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/liuyanban.html"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/build/"><i class="fa "></i>
+                                建站日志</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/bookmark/"><i class="fa "></i>
+                                书签</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/tools.html"><i class="fa "></i>
+                                工具类</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/others.html"><i class="fa "></i>
+                                代做Java系统</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Swagger和knife4j">
+            
+            Swagger和knife4j
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/27</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Swagger篇"><a href="#Swagger篇" class="headerlink" title="Swagger篇"></a>Swagger篇</h1><h2 id="一．简介"><a href="#一．简介" class="headerlink" title="一．简介"></a>一．简介</h2><p>1.什么是Swagger<br>Swagger是一组围绕OpenAPI规范构建的开源工具，可以帮助你设计、构建、记录和使用REST API。主要的Swagger工具包括：<br>Swagger Editor：基于浏览器的编辑器，你可以在这里编写OpenAPI规范。<br>Swagger UI：将OpenAPI规范渲染成交互式的API文档。<br>Swagger Codegen：从OpenAPI规范中生成服务器存根和客户端库。  </p>
+<h2 id="二．SSM整合Swagger"><a href="#二．SSM整合Swagger" class="headerlink" title="二．SSM整合Swagger"></a>二．SSM整合Swagger</h2><p>1.引入Maven   </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure> 
+
+<p>2.添加SwaggerConfig  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">package</span> <span class="selector-tag">cn</span><span class="selector-class">.atwangjian</span><span class="selector-class">.config</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.context</span><span class="selector-class">.annotation</span><span class="selector-class">.Bean</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.context</span><span class="selector-class">.annotation</span><span class="selector-class">.Configuration</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.servlet</span><span class="selector-class">.mvc</span><span class="selector-class">.method</span><span class="selector-class">.RequestMappingInfoHandlerMapping</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.servlet</span><span class="selector-class">.mvc</span><span class="selector-class">.method</span><span class="selector-class">.annotation</span><span class="selector-class">.RequestMappingHandlerMapping</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">springfox</span><span class="selector-class">.documentation</span><span class="selector-class">.builders</span><span class="selector-class">.PathSelectors</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">springfox</span><span class="selector-class">.documentation</span><span class="selector-class">.builders</span><span class="selector-class">.RequestHandlerSelectors</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">springfox</span><span class="selector-class">.documentation</span><span class="selector-class">.spi</span><span class="selector-class">.DocumentationType</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">springfox</span><span class="selector-class">.documentation</span><span class="selector-class">.spring</span><span class="selector-class">.web</span><span class="selector-class">.plugins</span><span class="selector-class">.Docket</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">springfox</span><span class="selector-class">.documentation</span><span class="selector-class">.swagger2</span><span class="selector-class">.annotations</span><span class="selector-class">.EnableSwagger2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @author wangjian</span></span><br><span class="line"><span class="comment"> * @date 2020/5/25 20:01</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">@Configuration</span></span><br><span class="line"><span class="keyword">@EnableSwagger2</span></span><br><span class="line">public class SwaggerConfig &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@Bean</span></span><br><span class="line">    public Docket userApi() &#123;</span><br><span class="line">        <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">Docket</span>(<span class="selector-tag">DocumentationType</span><span class="selector-class">.SWAGGER_2</span>)<span class="selector-class">.select</span>()<span class="selector-class">.apis</span>(<span class="selector-tag">RequestHandlerSelectors</span><span class="selector-class">.any</span>())</span><br><span class="line">                <span class="selector-class">.paths</span>(<span class="selector-tag">PathSelectors</span><span class="selector-class">.any</span>())</span><br><span class="line">                <span class="selector-class">.build</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@Bean</span></span><br><span class="line">    public RequestMappingInfoHandlerMapping requestMapping() &#123;</span><br><span class="line">        <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">RequestMappingHandlerMapping</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+
+
+<p>3.springMvc.xml添加Swagger配置   </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="comment">&lt;!--添加swagger配置--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入swagger相关 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"cn.atwangjian.config.SwaggerConfig"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--使用swagger --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" /&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--使用knife4j --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"doc.html"</span> <span class="attr">location</span>=<span class="string">"classpath:/META-INF/resources/"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/webjars/**"</span> <span class="attr">location</span>=<span class="string">"classpath:/META-INF/resources/webjars/"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"</span> <span class="attr">id</span>=<span class="string">"swagger2Config"</span>/&gt;</span></span><br></pre></td></tr></table></figure> 
+
+
+<h2 id="三．效果"><a href="#三．效果" class="headerlink" title="三．效果"></a>三．效果</h2><p>访问：<a href="http://IP:port/web-obj-name/swagger-ui.html">http://IP:port/web-obj-name/swagger-ui.html</a>   </p>
+<p><img src="https://ae01.alicdn.com/kf/Hbaecba1b41e44016ad45843fe279853aL.jpg" alt="效果1"></p>
+<p><img src="https://ae01.alicdn.com/kf/H8785bcb3b17f46ce8957935789403b9a8.jpg" alt="效果2"></p>
+<h2 id="四．常用属性介绍"><a href="#四．常用属性介绍" class="headerlink" title="四．常用属性介绍"></a>四．常用属性介绍</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Api</span>()    </span><br><span class="line">用于类；表示标识这个类是swagger的资源    </span><br><span class="line">tags–表示说明 </span><br><span class="line">value–也是说明，可以使用tags替代 </span><br><span class="line"></span><br><span class="line"><span class="variable">@ApiOperation</span>() </span><br><span class="line">用于方法；表示一个http请求的操作 </span><br><span class="line">value用于方法描述 </span><br><span class="line">notes用于提示内容 </span><br><span class="line">tags可以重新分组</span><br><span class="line"></span><br><span class="line"><span class="variable">@ApiParam</span>() </span><br><span class="line">用于方法，参数，字段说明；表示对参数的添加元数据（说明或是否必填等） </span><br><span class="line">name–参数名 </span><br><span class="line">value–参数说明 </span><br><span class="line">required–是否必填</span><br><span class="line"></span><br><span class="line"><span class="variable">@ApiModel</span>()</span><br><span class="line">用于类 ；表示对类进行说明，用于参数用实体类接收 </span><br><span class="line">value–表示对象名 </span><br><span class="line">description–描述 </span><br><span class="line">都可省略 </span><br><span class="line"></span><br><span class="line"><span class="variable">@ApiModelProperty</span>()</span><br><span class="line">用于方法，字段； 表示对model属性的说明或者数据操作更改 </span><br><span class="line">value–字段说明 </span><br><span class="line">name–重写属性名字 </span><br><span class="line">dataType–重写属性类型 </span><br><span class="line">required–是否必填 </span><br><span class="line">example–举例说明 </span><br><span class="line">hidden–隐藏</span><br></pre></td></tr></table></figure> 
+<h1 id="knife4j篇"><a href="#knife4j篇" class="headerlink" title="knife4j篇"></a>knife4j篇</h1><h2 id="一．简介-1"><a href="#一．简介-1" class="headerlink" title="一．简介"></a>一．简介</h2><p>knife4j是为集成Swagger生成Api文档的增强解决方案   </p>
+<h2 id="二．核心功能"><a href="#二．核心功能" class="headerlink" title="二．核心功能"></a>二．核心功能</h2><p>1.文档说明<br>   knife4j的列出接口文档的说明，包括接口地址、请求方式、接口描述、请求类型、请求示例、请求参数、响应状态、响应示例等。<br>2.在线调试<br>   knife4j提供了强大的在线接口调试功能，自动解析当前接口参数，同时包含表单验证，调用参数可返回接口响应内容、Raw、Headers、Curl以及响应耗时等信息。帮助开发者在线调试，而不用通过其他三方工具测试接口是否正确。   </p>
+<h2 id="三．SSM整合knife4j"><a href="#三．SSM整合knife4j" class="headerlink" title="三．SSM整合knife4j"></a>三．SSM整合knife4j</h2><p>1.maven中引入jar包<br>正如knife4j官网介绍所说，如果你是一名Java开发工程师,那么使用swagger-bootstrap-ui将会非常简单,只需要在原使用的基础上,添加swagger-bootstrap-ui的maven引用jar包即可。    </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-bootstrap-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.添加SwaggerConfig配置和springMvc配置<br>  同swagger篇   </p>
+<h2 id="四．效果"><a href="#四．效果" class="headerlink" title="四．效果"></a>四．效果</h2><p>访问地址：<a href="http://IP:port/web-obj-name/doc.html">http://IP:port/web-obj-name/doc.html</a><br>1.文档<br><img src="https://ae01.alicdn.com/kf/He449b5f4a4a54db1b00cab9eba4a1f72O.jpg" alt="效果3"><br>knife4j为我们写好了接口文档，可以直接复制导出，非常的方便。<br>2.调试<br>调试成功：<br><img src="https://ae01.alicdn.com/kf/Haf3d5f2a368740ec92fc052feb72d9f26.jpg" alt="效果4"><br>调试报错都会显示：<br><img src="https://ae01.alicdn.com/kf/H362792e9ce9b4f56bdc8ee9973eee961p.jpg" alt="效果5"></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/zhifubao.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/weixin.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处<a href="http://atwangjian.cn" target="_blank">http://atwangjian.cn</a>
+            
+            
+        </div>     
+        <div>
+            
+        </div>
+        <p>
+        <div>
+        	<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/middleware/2.html" class="next-post btn btn-default" title='redis'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            redis</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: '4GVjAHT57wrVSFgcukAADkSP-gzGzoHsz',
+    appKey: 'yNilC5ml46aQXsF4KI8SEQby',
+    placeholder: '说点什么吧！',
+    notify: true,
+    verify: true,
+    avatar: 'wavatar',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swagger篇"><span class="toc-text">Swagger篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一．简介"><span class="toc-text">一．简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二．SSM整合Swagger"><span class="toc-text">二．SSM整合Swagger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三．效果"><span class="toc-text">三．效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四．常用属性介绍"><span class="toc-text">四．常用属性介绍</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#knife4j篇"><span class="toc-text">knife4j篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一．简介-1"><span class="toc-text">一．简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二．核心功能"><span class="toc-text">二．核心功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三．SSM整合knife4j"><span class="toc-text">三．SSM整合knife4j</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四．效果"><span class="toc-text">四．效果</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">wangjian</a>
+                </span>             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":280},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/clipboard_use.js"></script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+</html>
