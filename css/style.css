@@ -783,9 +783,22 @@ pre {
   line-height: 36px;
 }
 .pagination .prev {
+  display: inline-block;
+  line-height: 36px;
+  padding: 0 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   margin: 0 5px;
+
 }
 .pagination .next {
+  display: inline-block;
+  line-height: 36px;
+  padding: 0 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   margin: 0 5px;
 }
 .pagination .page-number {
